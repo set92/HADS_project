@@ -21,7 +21,7 @@ Public Class Enviar_email
             'Direccion de origen
             Dim from_address As New MailAddress("@ikasle.ehu.eus", "stobal001")
             'Password de la cuenta
-            Dim from_pass As String = "gz7!EkUvY"
+            Dim from_pass As String = ""
             'Direccion de destino
             Dim to_address As New MailAddress(toWho)
             'Objeto para el cliente smtp
