@@ -1,21 +1,28 @@
 ﻿Imports System.Net.Mail
 Imports System.Net.NetworkCredential
 
-Public Class Enviar_email
+Public Class EnviarEmail
 
-    Function registro_usuario(objUser As Object) As Integer
-        Dim num_random As Integer = generar_numAleatorio()
+    Function Registro_usuario(objUser As Object) As Integer
+        Dim num_random As Integer = Generar_numAleatorio()
         'metodo insertar bd
 
-        Return enviarEmail("registro", objUser(0), num_random)
+        Return Enviar_email("registro", objUser(0), num_random)
     End Function
 
-    Function generar_numAleatorio() As Integer
+    Function Cambiar_password(email As String) As Integer
+        'Usar mismo generador?pero este no daba numeros de 7 cifras?en el powerpoint usa de 6 cifras
+        Dim num_random As Integer = Generar_numAleatorio()
+
+        Return Enviar_email("cambiarPassword", email, num_random)
+    End Function
+
+    Function Generar_numAleatorio() As Integer
         Randomize()
         Return CLng(Rnd() * 9000000) + 1000000
     End Function
 
-    Public Function enviarEmail(tipo As String, toWho As String, num As Integer) As Boolean
+    Public Function Enviar_email(tipo As String, toWho As String, num As Integer) As Boolean
         toWho = "set.tobur@gmail.com"
         Try
             'Direccion de origen
@@ -45,7 +52,7 @@ Public Class Enviar_email
                     message.Body = "<html><head></head><body>" + "http://localhost:55505/Confirmar.aspx?mbr=" + toWho + "&numconf=" + num + "</body></html>"
                 Case "cambiarPassword"
                     message.Subject = "Cambiar password"
-                    message.Body = "<html><head></head><body>" + "body" + "</body></html>"
+                    message.Body = "<html><head></head><body>" + "El codigo es: " + "</body></html>"
             End Select
 
             'Definimos el cuerpo como html para poder escojer mejor como lo mandamos
