@@ -68,12 +68,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Logica Negocio\Logica Negocio.vbproj">
-      <Project>{2f0c077e-0766-4f16-9639-80aad4253470}</Project>
-      <Name>Logica Negocio</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -165,6 +159,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\PublishProfiles\Laboratorio2-Web20180207103032 - Web Deploy.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -177,6 +172,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logica Negocio\Logica Negocio.vbproj">
+      <Project>{2f0c077e-0766-4f16-9639-80aad4253470}</Project>
+      <Name>Logica Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
