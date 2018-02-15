@@ -26,7 +26,7 @@ Public Class accesoBD
     End Function
 
     Public Shared Function insertarUsuario(ByVal datos As Array) As String
-        Dim sql = "insert into Usuarios(email, nombre, apellidos, numconfir, confirmado, tipo, pass) values('" & datos(0) & "', '" & datos(1) & "', '" & datos(2) & "', '" & datos(3) & "', " & datos(4) & ", '" & datos(5) & "')"
+        Dim sql = "insert into Usuarios(email, nombre, apellidos, numconfir, confirmado, tipo, pass) values('" & datos(0) & "', '" & datos(1) & "', '" & datos(2) & "', " & datos(3) & ", " & datos(4) & ", '" & datos(5) & "')"
         Dim numRegistro As Integer
 
         Try
@@ -40,13 +40,14 @@ Public Class accesoBD
     End Function
 
     Public Shared Function existeUsuario(ByVal datos As Array) As String
-        Dim sql = "update confirmado from Usuarios where numconfir='" & datos(1) & "'"
+        Dim sql = "update Usuarios set confirmado=true where email='" & datos(0) & "' and numconfir=" & datos(1)
 
         Try
             comando = New SqlCommand(sql, conexion)
-
+            If comando.ExecuteNonQuery() = 1 Then
+                Return "USUARIO CONFIRMADO OK"
             Else
-            Return "NO EXISTE EL USUARIO"
+                Return "NO EXISTE EL USUARIO"
             End If
         Catch ex As Exception
             Return "ERROR AL CONSULTAR EL USUARIO: " + ex.Message
