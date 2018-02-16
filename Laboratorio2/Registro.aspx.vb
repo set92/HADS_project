@@ -7,10 +7,13 @@
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim ln As New Logica_Negocio.EnviarEmail
-        Debug.Write(TextBox1.Text)
-        Dim datos_user As Object = {TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox5.Text, TextBox6.Text, DropDownList1.SelectedValue}
 
-        ln.Registro_usuario(datos_user)
+        Dim datos_user As Array = {tb_email.Text, tb_nombre.Text, tb_apellidos.Text, ln.Generar_numAleatorio, 0, DropDownList1.SelectedValue, tb_pass2.Text}
+        Dim url As String
+        url = Context.Request.Url.Scheme & "://" & Context.Request.Url.Host & ":" & Request.Url.Port & "/Confirmar.aspx?mbr=" & tb_email.Text & "&numconf=" & datos_user(3)
+
+        hl_linkRegistro.NavigateUrl = "" + url
+        ln.Registro_usuario(datos_user, url)
     End Sub
 
 End Class

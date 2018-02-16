@@ -93,6 +93,7 @@
   <ItemGroup>
     <Content Include="CambiarPassword.aspx" />
     <Content Include="Confirmar.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Inicio.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Web.config" />
@@ -111,6 +112,9 @@
     <Compile Include="Confirmar.aspx.vb">
       <DependentUpon>Confirmar.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Inicio.aspx.designer.vb">
       <DependentUpon>Inicio.aspx</DependentUpon>

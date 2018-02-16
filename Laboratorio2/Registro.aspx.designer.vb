@@ -41,13 +41,13 @@ Partial Public Class Registro
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''TextBox1 control.
+    '''tb_email control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_email As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''RegularExpressionValidator1 control.
@@ -77,13 +77,13 @@ Partial Public Class Registro
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''TextBox2 control.
+    '''tb_nombre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox2 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_nombre As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''RequiredFieldValidator1 control.
@@ -104,13 +104,13 @@ Partial Public Class Registro
     Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''TextBox3 control.
+    '''tb_apellidos control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox3 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_apellidos As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''RequiredFieldValidator5 control.
@@ -131,13 +131,13 @@ Partial Public Class Registro
     Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''TextBox5 control.
+    '''tb_pass control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox5 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_pass As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''CompareValidator1 control.
@@ -167,13 +167,13 @@ Partial Public Class Registro
     Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''TextBox6 control.
+    '''tb_pass2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox6 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_pass2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''RequiredFieldValidator4 control.
@@ -210,4 +210,13 @@ Partial Public Class Registro
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''hl_linkRegistro control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hl_linkRegistro As Global.System.Web.UI.WebControls.HyperLink
 End Class

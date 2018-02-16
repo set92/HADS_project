@@ -6,7 +6,7 @@ Public Class accesoBD
 
     Public Shared Function conectar() As String
         Try
-            conexion.ConnectionString = "Server=tcp:hads14-2018.database.windows.net,1433;Initial Catalog=HADS14-TAREAS;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+            conexion.ConnectionString = "Server=tcp:hads14-2018.database.windows.net,1433;Initial Catalog=HADS14-TAREAS;Persist Security Info=False;User ID=admin14;Password=admin_hads18;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
             conexion.Open()
 
             Return "CONEXION OK"
@@ -32,7 +32,6 @@ Public Class accesoBD
         Try
             comando = New SqlCommand(sql, conexion)
             numRegistro = comando.ExecuteNonQuery()
-
             Return "USUARIO INSERTADO OK"
         Catch ex As Exception
             Return "ERROR INSERCION USUARIO: " + ex.Message
