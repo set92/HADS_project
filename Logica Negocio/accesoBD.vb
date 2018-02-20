@@ -39,16 +39,18 @@ Public Class accesoBD
     End Function
 
     Public Shared Function existeUsuario(ByVal datos As Array) As String
-        Dim sql = "update Usuarios set confirmado=true where email='" & datos(0) & "' and numconfir=" & datos(1)
+        Dim sql = "update Usuarios set confirmado=1 where email='" & datos(0) & "' and numconfir=" & datos(1)
 
         Try
             comando = New SqlCommand(sql, conexion)
+
             If comando.ExecuteNonQuery() = 1 Then
                 Return "USUARIO CONFIRMADO OK"
             Else
                 Return "NO EXISTE EL USUARIO"
             End If
         Catch ex As Exception
+            MsgBox(ex.Message)
             Return "ERROR AL IDENTIFICAR EL USUARIO: " + ex.Message
         End Try
     End Function
@@ -84,7 +86,7 @@ Public Class accesoBD
     End Function
 
     Public Shared Function loginUsuario(ByRef datos As Array) As String
-        Dim sql = "select count(email) from Usuarios where email='" & datos(0) & "' and pass='" & datos(1) & "'"
+        Dim sql = "select count(email) from Usuarios where email='" & datos(0) & "' and pass='" & datos(1) & "' and confirmado=1"
 
         Try
             comando = New SqlCommand(sql, conexion)

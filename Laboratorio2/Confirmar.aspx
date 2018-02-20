@@ -9,10 +9,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="Label1" runat="server" Text="Hola, ya estas registrado en el sistema!!"></asp:Label>
+            <asp:Label ID="lbOk" runat="server"></asp:Label>
             <br />
             <br />
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Inicio.aspx">Pulsa aqui para identificarte en el sistema</asp:HyperLink>
+            <asp:HyperLink ID="hpLink" runat="server">[hpLink]</asp:HyperLink>
         </div>
     </form>
 </body>
