@@ -29,9 +29,7 @@ Public Class EnviarEmail
         Return CLng(Rnd() * 9000000) + 1000000
     End Function
 
-    Public Function Enviar_email(tipo As String, toWho As String, url As String) As Boolean
-        'Funciona, asi que deshabilito a donde se manda para que no me llene de spam
-        toWho = ""
+    Public Function Enviar_email(tipo As String, toWho As String, url As String) As Integer
         Try
             Dim from_address As New MailAddress("pruebahads@zoho.eu")
             Dim to_address As New MailAddress(toWho)
@@ -52,13 +50,14 @@ Public Class EnviarEmail
                     message.Body = " Visita este link para terminar tu registro : " & url
                 Case "cambiarPassword"
                     message.Subject = "Cambiar password"
-                    message.Body = "<html><head></head><body>" + "El codigo es: " + "</body></html>"
+                    message.Body = "El codigo es: " & url
             End Select
 
             'Definimos el cuerpo como html para poder escojer mejor como lo mandamos
             message.IsBodyHtml = True
             'Se envia el correo
             smtp.Send(message)
+            Return url
         Catch e As Exception
             MsgBox(e.Message)
             Return False
