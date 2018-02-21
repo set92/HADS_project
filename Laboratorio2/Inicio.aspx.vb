@@ -13,9 +13,16 @@
             Session.Contents("mail") = d(0)
             HyperLink3.Enabled = True
         Else
-            MsgBox("No se ha podido conectar", MsgBoxStyle.Information, "Error")
+            MesgBox("No se ha podido conectar")
         End If
         Logica_Negocio.accesoBD.cerrarConexion()
     End Sub
 
+    Private Sub MesgBox(ByVal sMessage As String)
+        Dim msg As String
+        msg = "<script language='javascript'>"
+        msg += "alert('" & sMessage & "');"
+        msg += "<" & "/script>"
+        Response.Write(msg)
+    End Sub
 End Class

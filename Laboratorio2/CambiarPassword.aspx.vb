@@ -20,7 +20,7 @@
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim d As Array = {tb_email.Text, tb_newPassword.Text}
         Logica_Negocio.accesoBD.conectar()
-        MsgBox(Logica_Negocio.accesoBD.cambiarPassword(d))
+        lbl_codigo0.Text = Logica_Negocio.accesoBD.cambiarPassword(d)
         Logica_Negocio.accesoBD.cerrarConexion()
     End Sub
 End Class

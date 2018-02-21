@@ -26,6 +26,7 @@
             <br />
             <br />
             <asp:Button ID="bt_login" runat="server" Text="Login" />
+            &nbsp;&nbsp;&nbsp;
             <br />
             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Registro.aspx">Registrar</asp:HyperLink>
             <br />

@@ -7,14 +7,12 @@ Public Class EnviarEmail
         accesoBD.conectar()
 
         If String.Compare(accesoBD.insertarUsuario(objUser), "USUARIO INSERTADO OK") = 0 Then
-            MsgBox("Entrar")
+            accesoBD.cerrarConexion()
             Return Enviar_email("registro", objUser(0), url)
         Else
-            MsgBox("Usuario ya existe en BD")
-            Return "Error"
+            accesoBD.cerrarConexion()
+            Return -1
         End If
-        accesoBD.cerrarConexion()
-        Return Enviar_email("registro", objUser(0), url)
     End Function
 
     Function Cambiar_password(email As String) As Integer
@@ -48,16 +46,16 @@ Public Class EnviarEmail
                 Case "registro"
                     message.Subject = "Confirmacion de registro"
                     message.Body = " Visita este link para terminar tu registro : " & url
+                    message.IsBodyHtml = True
+                    smtp.Send(message)
+                    Return True
                 Case "cambiarPassword"
                     message.Subject = "Cambiar password"
                     message.Body = "El codigo es: " & url
+                    message.IsBodyHtml = True
+                    smtp.Send(message)
+                    Return url
             End Select
-
-            'Definimos el cuerpo como html para poder escojer mejor como lo mandamos
-            message.IsBodyHtml = True
-            'Se envia el correo
-            smtp.Send(message)
-            Return url
         Catch e As Exception
             MsgBox(e.Message)
             Return False

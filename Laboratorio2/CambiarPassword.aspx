@@ -38,6 +38,8 @@
             <br />
             <br />
             <asp:Button ID="Button2" runat="server" Text="Cambiar password" ValidationGroup="g2" />
+        &nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lbl_codigo0" runat="server"></asp:Label>
         </div>
     </form>
 </body>

@@ -26,7 +26,7 @@ Public Class accesoBD
     End Function
 
     Public Shared Function insertarUsuario(ByVal datos As Array) As String
-        Dim sql = "insert into Usuarios(email, nombre, apellidos, numconfir, confirmado, tipo, pass) values('" & datos(0) & "', '" & datos(1) & "', '" & datos(2) & "', " & datos(3) & ", " & datos(4) & ", '" & datos(5) & "', " & datos(6) & ")"
+        Dim sql = "insert into Usuarios(email, nombre, apellidos, numconfir, confirmado, tipo, pass) values('" & datos(0) & "', '" & datos(1) & "', '" & datos(2) & "', " & datos(3) & ", " & datos(4) & ", '" & datos(5) & "', '" & datos(6) & "')"
         Dim numRegistro As Integer
 
         Try
