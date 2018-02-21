@@ -70,7 +70,7 @@ Public Class accesoBD
         End Try
     End Function
 
-    Public Shared Function cambiarPassword(ByRef datos As Array) As String
+    Public Shared Function cambiarPassword(ByVal datos As Array) As String
         Dim sql = "update Usuarios set pass='" & datos(1) & "' where email='" & datos(0) & "'"
 
         Try
@@ -85,7 +85,7 @@ Public Class accesoBD
         End Try
     End Function
 
-    Public Shared Function loginUsuario(ByRef datos As Array) As String
+    Public Shared Function loginUsuario(ByVal datos As Array) As String
         Dim sql = "select count(email) from Usuarios where email='" & datos(0) & "' and pass='" & datos(1) & "' and confirmado=1"
 
         Try

@@ -1,12 +1,11 @@
 ﻿Imports System.Net.Mail
-Imports System.Net.NetworkCredential
 
 Public Class EnviarEmail
 
     Function Registro_usuario(objUser As Array, url As String) As Integer
         'el num aleatorio ha sido generado en registrar para poder visualizar la url alli tambien
         accesoBD.conectar()
-        Return Enviar_email("registro", objUser(0), url)
+
         If String.Compare(accesoBD.insertarUsuario(objUser), "USUARIO INSERTADO OK") = 0 Then
             MsgBox("Entrar")
             Return Enviar_email("registro", objUser(0), url)
@@ -15,7 +14,7 @@ Public Class EnviarEmail
             Return "Error"
         End If
         accesoBD.cerrarConexion()
-
+        Return Enviar_email("registro", objUser(0), url)
     End Function
 
     Function Cambiar_password(email As String) As Integer

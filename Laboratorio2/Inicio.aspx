@@ -29,7 +29,7 @@
             <br />
             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Registro.aspx">Registrar</asp:HyperLink>
             <br />
-            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/CambiarPassword.aspx">Modificar password</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/CambiarPassword.aspx" Enabled="False">Modificar password</asp:HyperLink>
             <br />
         </div>
     </form>

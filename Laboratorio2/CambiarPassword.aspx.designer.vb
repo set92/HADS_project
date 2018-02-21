@@ -41,13 +41,13 @@ Partial Public Class CambiarPassword
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''TextBox1 control.
+    '''tb_email control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_email As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''RequiredFieldValidator3 control.
@@ -77,6 +77,15 @@ Partial Public Class CambiarPassword
     Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
+    '''lbl_codigo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_codigo As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Label2 control.
     '''</summary>
     '''<remarks>
@@ -86,13 +95,13 @@ Partial Public Class CambiarPassword
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''TextBox2 control.
+    '''tb_codigo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox2 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_codigo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''RequiredFieldValidator1 control.
@@ -113,13 +122,13 @@ Partial Public Class CambiarPassword
     Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''TextBox3 control.
+    '''tb_newPassword control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox3 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_newPassword As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''RequiredFieldValidator2 control.
