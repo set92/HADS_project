@@ -21,7 +21,7 @@
             <br />
             <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="tb_password" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tb_password" runat="server" TextMode="Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tb_password" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
             <br />
             <br />
@@ -30,7 +30,7 @@
             <br />
             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Registro.aspx">Registrar</asp:HyperLink>
             <br />
-            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/CambiarPassword.aspx" Enabled="False">Modificar password</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/CambiarPassword.aspx">Modificar password</asp:HyperLink>
             <br />
         </div>
     </form>

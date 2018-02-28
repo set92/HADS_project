@@ -33,7 +33,7 @@
             <br />
             <asp:Label ID="Label3" runat="server" Text="Nueva password"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="tb_newPassword" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tb_newPassword" runat="server" TextMode="Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tb_newPassword" ErrorMessage="RequiredFieldValidator" ValidationGroup="g2"></asp:RequiredFieldValidator>
             <br />
             <br />

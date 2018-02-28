@@ -32,13 +32,13 @@
             <br />
             <asp:Label ID="Label5" runat="server" Text="Password"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="tb_pass" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tb_pass" runat="server" TextMode="Password"></asp:TextBox>
             <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="tb_pass" ControlToValidate="tb_pass2" ErrorMessage="CompareValidator"></asp:CompareValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tb_pass" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="Label6" runat="server" Text="Password (repetir)"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="tb_pass2" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tb_pass2" runat="server" TextMode="Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="tb_pass2" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="Label7" runat="server" Text="Rol"></asp:Label>
