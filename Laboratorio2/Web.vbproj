@@ -91,15 +91,40 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="InsertarTarea.aspx" />
+    <Content Include="Profesor.aspx" />
+    <Content Include="Alumno.aspx" />
     <Content Include="CambiarPassword.aspx" />
     <Content Include="Confirmar.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Inicio.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="TareasAlumno.aspx" />
+    <Content Include="TareasProfesor.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InsertarTarea.aspx.designer.vb">
+      <DependentUpon>InsertarTarea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarTarea.aspx.vb">
+      <DependentUpon>InsertarTarea.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Profesor.aspx.designer.vb">
+      <DependentUpon>Profesor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor.aspx.vb">
+      <DependentUpon>Profesor.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Alumno.aspx.designer.vb">
+      <DependentUpon>Alumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Alumno.aspx.vb">
+      <DependentUpon>Alumno.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="CambiarPassword.aspx.designer.vb">
       <DependentUpon>CambiarPassword.aspx</DependentUpon>
     </Compile>
@@ -155,6 +180,13 @@
     </Compile>
     <Compile Include="TareasAlumno.aspx.vb">
       <DependentUpon>TareasAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="TareasProfesor.aspx.designer.vb">
+      <DependentUpon>TareasProfesor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TareasProfesor.aspx.vb">
+      <DependentUpon>TareasProfesor.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

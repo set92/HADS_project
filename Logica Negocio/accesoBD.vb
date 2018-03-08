@@ -99,4 +99,18 @@ Public Class accesoBD
             Return "ERROR AL ACCEDER EL USUARIO: " + ex.Message
         End Try
     End Function
+
+    Public Shared Function tipoUsuario(ByVal datos As Array) As String
+        Dim sql = "select * from Usuarios where email='" & datos(0) & "'"
+        Dim vDatos As SqlDataReader
+        Dim tipo As String = ""
+        comando = New SqlCommand(sql, conexion)
+        vDatos = comando.ExecuteReader
+        While vDatos.Read
+            tipo = vDatos.Item("tipo")
+        End While
+        vDatos.Close()
+        Return tipo
+
+    End Function
 End Class

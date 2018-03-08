@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class TareasAlumno
+Partial Public Class TareasProfesor
     
     '''<summary>
     '''form1 control.
@@ -32,15 +32,6 @@ Partial Public Class TareasAlumno
     Protected WithEvents LinkButton1 As Global.System.Web.UI.WebControls.LinkButton
     
     '''<summary>
-    '''Label1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
     '''DropDownList1 control.
     '''</summary>
     '''<remarks>
@@ -50,6 +41,24 @@ Partial Public Class TareasAlumno
     Protected WithEvents DropDownList1 As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
+    '''tareas_profesor control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tareas_profesor As Global.System.Web.UI.WebControls.SqlDataSource
+    
+    '''<summary>
+    '''bt_insertar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bt_insertar As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''GridView1 control.
     '''</summary>
     '''<remarks>
@@ -57,4 +66,13 @@ Partial Public Class TareasAlumno
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''gv_tareas_asignatura control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gv_tareas_asignatura As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

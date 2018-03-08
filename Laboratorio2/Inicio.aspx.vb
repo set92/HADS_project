@@ -11,7 +11,12 @@
         Logica_Negocio.accesoBD.conectar()
         If String.Compare(Logica_Negocio.accesoBD.loginUsuario(d), "LOGIN USUARIO OK") = 0 Then
             Session.Contents("mail") = d(0)
-            HyperLink3.Enabled = True
+            Session.Contents("tipo") = Logica_Negocio.accesoBD.tipoUsuario(d)
+            If String.Compare(Session.Contents("tipo"), "Profesor") = 0 Then
+                Response.Redirect("~/TareasProfesor.aspx")
+            ElseIf String.Compare(Session.Contents("tipo"), "Alumno") = 0 Then
+                Response.Redirect("~/TareasAlumno.aspx")
+            End If
         Else
             MesgBox("No se ha podido conectar")
         End If
