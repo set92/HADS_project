@@ -14,6 +14,7 @@
             Dim mail = "pepe@ikasle.ehu.es"
 
             datos = Logica_Negocio.accesoOleBD.obtenerTareas(mail)
+            Session.Contents("DataSetTareasAlumno") = datos
             table = datos.Tables("TareasG")
 
             DropDownList1.DataSource = table
@@ -25,7 +26,7 @@
             GridView1.DataSource = vista
             GridView1.DataBind()
         Else
-
+            datos = Session.Contents("DataSetTareasAlumno")
         End If
     End Sub
 
@@ -43,9 +44,9 @@
     End Sub
 
     Protected Sub DropDownList1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DropDownList1.SelectedIndexChanged
-        table = New DataTable()
-        table = datos.Tables("TareasG")
-        vista = New DataView(table)
+        'table = New DataTable()
+        'table = datos.Tables("TareasG")
+        'vista = New DataView(table)
         vista.RowFilter = "CodAsig='" & DropDownList1.SelectedValue & "'"
         'GridView1.DataSource = Nothing
         GridView1.DataSource = vista
