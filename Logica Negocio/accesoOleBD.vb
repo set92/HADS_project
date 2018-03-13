@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+Imports System.Data.SqlClient
 
 Public Class accesoOleBD
     Private Shared conexion As New OleDbConnection
@@ -33,4 +34,5 @@ Public Class accesoOleBD
         adapter.Fill(datos, "TareasG")
         Return datos
     End Function
+
 End Class

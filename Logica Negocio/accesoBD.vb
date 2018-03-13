@@ -114,5 +114,11 @@ Public Class accesoBD
 
     End Function
 
+    Public Shared Function obtenerTareasGenericas_Profesor() As SqlDataAdapter
+        Dim st = "SELECT * FROM TareasGenericas"
+        Dim dapt = New SqlDataAdapter(st, conexion)
+        cerrarConexion()
+        Return dapt
+    End Function
 
 End Class
