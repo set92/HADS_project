@@ -15,14 +15,19 @@
             <br />
             <asp:Label ID="Label1" runat="server" Text="Seleccionar Asignatura (solo se ven las matriculadas)"></asp:Label>
             <br />
-            <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
             </asp:DropDownList>
             <br />
             <br />
             <br />
-            <asp:GridView ID="GridView1" runat="server">
+            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False">
                 <Columns>
                     <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Instanciar" />
+                    <asp:BoundField DataField="Codigo" HeaderText="Codigo" SortExpression="Codigo" />
+                    <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
+                    <asp:BoundField DataField="HEstimadas" HeaderText="HEstimadas" SortExpression="HEstimadas" />
+                    <asp:BoundField DataField="TipoTarea" HeaderText="TipoTarea" SortExpression="TipoTarea" />
+                    <asp:BoundField DataField="CodAsig" HeaderText="CodAsig" SortExpression="CodAsig" Visible="false" />
                 </Columns>
             </asp:GridView>
         </div>
