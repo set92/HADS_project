@@ -113,4 +113,6 @@ Public Class accesoBD
         Return tipo
 
     End Function
+
+
 End Class
