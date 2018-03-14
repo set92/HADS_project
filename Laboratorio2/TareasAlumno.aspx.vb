@@ -1,18 +1,19 @@
 ﻿Public Class TareasAlumno
     Inherits System.Web.UI.Page
 
-    Private datos As DataSet
-    Private vista As DataView
-    Private table As DataTable
+    Private Shared datos As New DataSet
+    Private Shared vista As New DataView
+    Private Shared table As New DataTable
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'If (Session("log") = False Or Session("rol") = "p") Then
+        'Response.Redirect("~/Inicio.aspx")
+        'End If
         If Not IsPostBack Then
             ' Dim mail = Session.Contents("email")
-
             Dim mail = "pepe@ikasle.ehu.es"
 
             datos = Logica_Negocio.accesoOleBD.obtenerTareas(mail)
-            Session.Contents("DataSetTareasAlumno") = datos
             table = datos.Tables("TareasG")
             vista = New DataView(table)
 
@@ -20,16 +21,20 @@
             DropDownList1.DataValueField = "CodAsig"
             DropDownList1.DataBind()
 
-
             vista.RowFilter = "CodAsig='" & DropDownList1.SelectedValue & "'"
             GridView1.DataSource = vista.ToTable
             GridView1.DataBind()
 
+            Session.Contents("DataSetTareasAlumno") = datos
+            Session.Contents("DataViewTareas") = vista
+            Session.Contents("DataTableTareas") = table
             Session.Contents("flagDesc") = True
             Session.Contents("flagH") = True
             Session.Contents("FlagT") = True
         Else
             datos = Session.Contents("DataSetTareasAlumno")
+            vista = Session.Contents("DataViewTareas")
+            table = Session.Contents("DataTableTareas")
         End If
     End Sub
 
@@ -39,21 +44,16 @@
     End Sub
 
     Protected Sub GridView1_Sorting(sender As Object, e As GridViewSortEventArgs) Handles GridView1.Sorting
-        Dim table = New DataTable
-        table = datos.Tables("TareasG")
-        vista = New DataView(table)
-        vista.Sort = e.SortExpression
+        Dim v = vista
+        v.Sort = e.SortExpression
         'vista.RowFilter = "CodAsig='" & DropDownList1.SelectedValue & "'"
-        GridView1.DataSource = vista.ToTable
+        GridView1.DataSource = v.ToTable
         GridView1.DataBind()
     End Sub
 
     Protected Sub DropDownList1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DropDownList1.SelectedIndexChanged
-        table = New DataTable()
-        table = datos.Tables("TareasG")
-        vista = New DataView(table)
         vista.RowFilter = "CodAsig='" & DropDownList1.SelectedValue & "'"
-        'GridView1.DataSource = Nothing
+        GridView1.DataSource = Nothing
         GridView1.DataSource = vista.ToTable
         GridView1.DataBind()
     End Sub
@@ -61,6 +61,9 @@
     Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
         Session.Contents("Tarea") = table.Rows(GridView1.SelectedIndex).Item(0).ToString
         Session.Contents("HEstimada") = table.Rows(GridView1.SelectedIndex).Item(2).ToString
+        Session.Contents("DataSetTareasAlumno") = Nothing
+        Session.Contents("DataViewTareas") = Nothing
+        Session.Contents("DataTableTareas") = Nothing
         Response.Redirect("~/InstanciarTarea.aspx")
     End Sub
 

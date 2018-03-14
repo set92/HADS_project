@@ -41,4 +41,18 @@ Public Class accesoOleBD
         Return datos
     End Function
 
+    Public Shared Function obtenerEstudiantesTareas(ByVal mail As String) As DataSet
+        Dim sql = "select Email, CodTarea, HEstimadas, HReales from EstudiantesTareas where Email='" & mail & "' and HReales!=0"
+
+        conexion = New OleDbConnection("Provider=SQLNCLI11;Server=tcp:hads14-2018.database.windows.net,1433;Initial Catalog=HADS14-TAREAS;Persist Security Info=False;User ID=admin14;Password=admin_hads18;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")
+        conexion.Open()
+
+        adapter = New OleDbDataAdapter(sql, conexion)
+        adapter.Fill(datos, "EstudiantesT")
+
+        conexion.Close()
+
+        Return datos
+    End Function
+
 End Class
