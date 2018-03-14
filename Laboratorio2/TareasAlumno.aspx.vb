@@ -58,6 +58,12 @@
         GridView1.DataBind()
     End Sub
 
+    Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
+        Session.Contents("Tarea") = table.Rows(GridView1.SelectedIndex).Item(0).ToString
+        Session.Contents("HEstimada") = table.Rows(GridView1.SelectedIndex).Item(2).ToString
+        Response.Redirect("~/InstanciarTarea.aspx")
+    End Sub
+
     Protected Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If (Session.Contents("flagDesc")) Then
             Session.Contents("flagDesc") = False
@@ -84,4 +90,5 @@
         End If
         GridView1.Columns(4).Visible = Session.Contents("FlagT")
     End Sub
+
 End Class

@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="InsertarTarea.aspx" />
+    <Content Include="InstanciarTarea.aspx" />
     <Content Include="Profesor.aspx" />
     <Content Include="Alumno.aspx" />
     <Content Include="CambiarPassword.aspx" />
@@ -109,6 +110,13 @@
     </Compile>
     <Compile Include="InsertarTarea.aspx.vb">
       <DependentUpon>InsertarTarea.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="InstanciarTarea.aspx.designer.vb">
+      <DependentUpon>InstanciarTarea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InstanciarTarea.aspx.vb">
+      <DependentUpon>InstanciarTarea.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Profesor.aspx.designer.vb">
@@ -246,7 +254,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55505</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
