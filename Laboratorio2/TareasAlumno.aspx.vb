@@ -14,12 +14,13 @@
             datos = Logica_Negocio.accesoOleBD.obtenerTareas(mail)
             Session.Contents("DataSetTareasAlumno") = datos
             table = datos.Tables("TareasG")
+            vista = New DataView(table)
 
-            DropDownList1.DataSource = table
+            DropDownList1.DataSource = vista.ToTable(True, "CodAsig")
             DropDownList1.DataValueField = "CodAsig"
             DropDownList1.DataBind()
 
-            vista = New DataView(table)
+
             vista.RowFilter = "CodAsig='" & DropDownList1.SelectedValue & "'"
             GridView1.DataSource = vista.ToTable
             GridView1.DataBind()
