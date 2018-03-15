@@ -133,9 +133,10 @@ Public Class accesoBD
     End Function
 
     Public Shared Function obtenerEstudiantesTareas(ByVal mail As String) As DataSet
-        Dim sql = "select Email, CodTarea, HEstimadas, HReales from EstudiantesTareas where Email='" & mail & "' and HReales!=0"
+        Dim sql = "select Email, CodTarea, HEstimadas, HReales from EstudiantesTareas where Email='" & mail & "'"
         Dim dataset As New DataSet
         dataAdapET = New SqlDataAdapter(sql, conexion)
+        Dim blabla As New SqlCommandBuilder(dataAdapET)
 
         dataAdapET.Fill(dataset, "EstudiantesT")
         Return dataset

@@ -10,9 +10,9 @@
         'Response.Redirect("~/Inicio.aspx")
         'End If
         If Not IsPostBack Then
-            'Session.Contents("email")
+            'Dim mail = Session.Contents("email")
             Dim mail = "pepe@ikasle.ehu.es"
-            TextBox1.Text = "pepe@ikasle.ehu.es"
+            TextBox1.Text = mail
             TextBox2.Text = Session.Contents("Tarea")
             TextBox3.Text = Session.Contents("HEstimada")
 
