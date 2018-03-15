@@ -3,6 +3,8 @@
 Public Class accesoBD
     Private Shared conexion As New SqlConnection
     Private Shared comando As New SqlCommand
+    Private Shared dataAdapET As New SqlDataAdapter
+    Private Shared dataAdapTG As New SqlDataAdapter
 
     Public Shared Function conectar() As String
         Try
@@ -121,4 +123,26 @@ Public Class accesoBD
         Return dapt
     End Function
 
+    Public Shared Function obtenerTareas(ByVal mail As String) As DataSet
+        Dim sql = "select Codigo, Descripcion, HEstimadas, TipoTarea, CodAsig from TareasGenericas where Explotacion=1 and Codigo not in (select CodTarea from EstudiantesTareas where Email='pepe@ikasle.ehu.es')"
+        Dim dataset As New DataSet
+        dataAdapTG = New SqlDataAdapter(sql, conexion)
+
+        dataAdapTG.Fill(dataset, "TareasG")
+        Return dataset
+    End Function
+
+    Public Shared Function obtenerEstudiantesTareas(ByVal mail As String) As DataSet
+        Dim sql = "select Email, CodTarea, HEstimadas, HReales from EstudiantesTareas where Email='" & mail & "' and HReales!=0"
+        Dim dataset As New DataSet
+        dataAdapET = New SqlDataAdapter(sql, conexion)
+
+        dataAdapET.Fill(dataset, "EstudiantesT")
+        Return dataset
+    End Function
+
+    Public Shared Sub instanciarTarea(ByVal dataset As DataSet)
+        dataAdapET.Update(dataset, "EstudiantesT")
+        dataset.AcceptChanges()
+    End Sub
 End Class

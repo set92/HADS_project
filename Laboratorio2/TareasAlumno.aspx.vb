@@ -13,7 +13,9 @@
             ' Dim mail = Session.Contents("email")
             Dim mail = "pepe@ikasle.ehu.es"
 
-            datos = Logica_Negocio.accesoOleBD.obtenerTareas(mail)
+            Logica_Negocio.accesoBD.conectar()
+            datos = Logica_Negocio.accesoBD.obtenerTareas(mail)
+            Logica_Negocio.accesoBD.cerrarConexion()
             table = datos.Tables("TareasG")
             vista = New DataView(table)
 
@@ -22,7 +24,7 @@
             DropDownList1.DataBind()
 
             vista.RowFilter = "CodAsig='" & DropDownList1.SelectedValue & "'"
-            GridView1.DataSource = vista.ToTable
+            GridView1.DataSource = vista.ToTable(True, "Codigo", "Descripcion", "HEstimadas", "TipoTarea")
             GridView1.DataBind()
 
             Session.Contents("DataSetTareasAlumno") = datos
@@ -54,7 +56,7 @@
     Protected Sub DropDownList1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DropDownList1.SelectedIndexChanged
         vista.RowFilter = "CodAsig='" & DropDownList1.SelectedValue & "'"
         GridView1.DataSource = Nothing
-        GridView1.DataSource = vista.ToTable
+        GridView1.DataSource = vista.ToTable(True, "Codigo", "Descripcion", "HEstimadas", "TipoTarea")
         GridView1.DataBind()
     End Sub
 
