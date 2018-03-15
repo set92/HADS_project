@@ -124,7 +124,7 @@ Public Class accesoBD
     End Function
 
     Public Shared Function obtenerTareas(ByVal mail As String) As DataSet
-        Dim sql = "select Codigo, Descripcion, HEstimadas, TipoTarea, CodAsig from TareasGenericas where Explotacion=1 and Codigo not in (select CodTarea from EstudiantesTareas where Email='pepe@ikasle.ehu.es')"
+        Dim sql = "select Codigo, Descripcion, HEstimadas, TipoTarea, CodAsig from TareasGenericas where Explotacion=1 and Codigo not in (select CodTarea from EstudiantesTareas where Email='" & mail & "')"
         Dim dataset As New DataSet
         dataAdapTG = New SqlDataAdapter(sql, conexion)
 
@@ -141,8 +141,8 @@ Public Class accesoBD
         Return dataset
     End Function
 
-    Public Shared Sub instanciarTarea(ByVal dataset As DataSet)
-        dataAdapET.Update(dataset, "EstudiantesT")
-        dataset.AcceptChanges()
+    Public Shared Sub instanciarTarea(ByVal datos As DataTable)
+        dataAdapET.Update(datos.DataSet, "EstudiantesT")
+        datos.DataSet.AcceptChanges()
     End Sub
 End Class

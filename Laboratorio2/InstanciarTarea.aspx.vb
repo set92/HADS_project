@@ -37,18 +37,17 @@
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim fila As DataRow
-        fila = table.NewRow()
+        Dim fila As DataRow = table.NewRow()
         fila("Email") = TextBox1.Text
         fila("CodTarea") = TextBox2.Text
         fila("HEstimadas") = TextBox3.Text
         fila("HReales") = TextBox4.Text
         table.Rows.Add(fila)
-        Label6.Text = "Tarea del alumno " & TextBox1.Text & "instanciada con " & TextBox4.Text & "horas"
+        Label6.Text = "Tarea del alumno " & TextBox1.Text & " instanciada con " & TextBox4.Text & " horas"
         GridView1.DataSource = table
         GridView1.DataBind()
         Button1.Enabled = False
-        Logica_Negocio.accesoBD.instanciarTarea(datos)
+        Logica_Negocio.accesoBD.instanciarTarea(table)
     End Sub
 
     Protected Sub LinkButton1_Click(sender As Object, e As EventArgs) Handles LinkButton1.Click
