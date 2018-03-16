@@ -6,12 +6,12 @@
     Private Shared table As New DataTable
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'If (Session("log") = False Or Session("rol") = "p") Then
-        'Response.Redirect("~/Inicio.aspx")
-        'End If
+        If (Session.Contents("tipo") = "Profesor") Then
+            Response.Redirect("~/Inicio.aspx")
+        End If
         If Not IsPostBack Then
-            ' Dim mail = Session.Contents("email")
-            Dim mail = "pepe@ikasle.ehu.es"
+            Dim mail = Session.Contents("mail")
+            'Dim mail = "pepe@ikasle.ehu.es"
 
             Logica_Negocio.accesoBD.conectar()
             datos = Logica_Negocio.accesoBD.obtenerTareas(mail)
@@ -48,7 +48,6 @@
     Protected Sub GridView1_Sorting(sender As Object, e As GridViewSortEventArgs) Handles GridView1.Sorting
         Dim v = vista
         v.Sort = e.SortExpression
-        'vista.RowFilter = "CodAsig='" & DropDownList1.SelectedValue & "'"
         GridView1.DataSource = v.ToTable
         GridView1.DataBind()
     End Sub

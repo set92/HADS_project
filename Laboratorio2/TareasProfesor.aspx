@@ -17,7 +17,7 @@
             </asp:DropDownList>
             <asp:SqlDataSource ID="tareas_profesor" runat="server" ConnectionString="<%$ ConnectionStrings:HADS14-TAREASConnectionString %>" SelectCommand="SELECT GruposClase.codigoasig FROM GruposClase INNER JOIN ProfesoresGrupo ON ProfesoresGrupo.email = @email AND ProfesoresGrupo.codigogrupo = GruposClase.codigo">
                 <SelectParameters>
-                    <asp:SessionParameter DefaultValue="blanco@ehu.es" Name="email" SessionField="email" Type="String" />
+                    <asp:SessionParameter DefaultValue="blanco@ehu.es" Name="email" SessionField="mail" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
             <br />
@@ -52,7 +52,7 @@
  INNER JOIN ProfesoresGrupo ON GruposClase.codigo=ProfesoresGrupo.codigogrupo)
  WHERE ProfesoresGrupo.email=@profesor and TareasGenericas.CodAsig=@asignatura" UpdateCommand="UPDATE TareasGenericas SET Descripcion=@Descripcion,CodAsig=@CodAsig,HEstimadas=@HEstimadas,Explotacion=@Explotacion,TipoTarea=@TipoTarea WHERE Codigo=@Codigo">
                 <SelectParameters>
-                    <asp:SessionParameter DefaultValue="blanco@ehu.es" Name="profesor" SessionField="email" />
+                    <asp:SessionParameter DefaultValue="blanco@ehu.es" Name="profesor" SessionField="mail" />
                     <asp:ControlParameter ControlID="DropDownList1" Name="asignatura" PropertyName="SelectedValue" DefaultValue="HAS" />
                 </SelectParameters>
                 <UpdateParameters>

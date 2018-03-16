@@ -23,6 +23,7 @@
                     <DynamicMenuStyle BackColor="#FFFBD6" />
                     <DynamicSelectedStyle BackColor="#FFCC66" />
                     <Items>
+                        <asp:MenuItem NavigateUrl="~/VerEstadisticas.aspx" Text="Estadisticas" Value="Estadisticas"></asp:MenuItem>
                         <asp:MenuItem Text="Asignaturas" Value="Asignaturas"></asp:MenuItem>
                         <asp:MenuItem Text="Tareas" Value="Tareas" NavigateUrl="~/TareasProfesor.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Grupos" Value="Grupos"></asp:MenuItem>

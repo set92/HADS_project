@@ -13,9 +13,9 @@
             Session.Contents("mail") = d(0)
             Session.Contents("tipo") = Logica_Negocio.accesoBD.tipoUsuario(d)
             If String.Compare(Session.Contents("tipo"), "Profesor") = 0 Then
-                Response.Redirect("~/TareasProfesor.aspx")
+                Response.Redirect("~/Profesor.aspx")
             ElseIf String.Compare(Session.Contents("tipo"), "Alumno") = 0 Then
-                Response.Redirect("~/TareasAlumno.aspx")
+                Response.Redirect("~/Alumno.aspx")
             End If
         Else
             MesgBox("No se ha podido conectar")

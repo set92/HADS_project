@@ -24,7 +24,7 @@
         <asp:DropDownList ID="DropDownList1" runat="server" Width="200px" CssClass="form-control" DataSourceID="SqlDataSource1" DataTextField="codigoAsig" DataValueField="codigoAsig"></asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:HADS14-TAREASConnectionString %>" SelectCommand="SELECT codigoAsig FROM ((GruposClase INNER JOIN ProfesoresGrupo ON email=@email and codigogrupo=codigo))">
             <SelectParameters>
-                <asp:SessionParameter Name="email" SessionField="email" DefaultValue="blanco@ehu.es" />
+                <asp:SessionParameter Name="email" SessionField="mail" DefaultValue="blanco@ehu.es" />
             </SelectParameters>
         </asp:SqlDataSource>
         <br />

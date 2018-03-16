@@ -6,12 +6,12 @@
     Private table As DataTable
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'If (Session("log") = False Or Session("rol") = "p") Then
-        'Response.Redirect("~/Inicio.aspx")
-        'End If
+        If (Session.Contents("tipo") = "Profesor") Then
+            Response.Redirect("~/Inicio.aspx")
+        End If
         If Not IsPostBack Then
-            'Dim mail = Session.Contents("email")
-            Dim mail = "pepe@ikasle.ehu.es"
+            Dim mail = Session.Contents("mail")
+            'Dim mail = "pepe@ikasle.ehu.es"
             TextBox1.Text = mail
             TextBox2.Text = Session.Contents("Tarea")
             TextBox3.Text = Session.Contents("HEstimada")
