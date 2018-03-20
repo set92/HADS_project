@@ -11,7 +11,7 @@
         End If
         If Not IsPostBack Then
             Dim mail = Session.Contents("mail")
-            'Dim mail = "pepe@ikasle.ehu.es"
+            'mail = "jose@ikasle.ehu.es"
 
             Logica_Negocio.accesoBD.conectar()
             datos = Logica_Negocio.accesoBD.obtenerTareas(mail)
@@ -60,8 +60,8 @@
     End Sub
 
     Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
-        Session.Contents("Tarea") = table.Rows(GridView1.SelectedIndex).Item(0).ToString
-        Session.Contents("HEstimada") = table.Rows(GridView1.SelectedIndex).Item(2).ToString
+        Session.Contents("Tarea") = GridView1.Rows(GridView1.SelectedIndex).Cells(1).Text
+        Session.Contents("HEstimada") = GridView1.Rows(GridView1.SelectedIndex).Cells(3).Text
         Session.Contents("DataSetTareasAlumno") = Nothing
         Session.Contents("DataViewTareas") = Nothing
         Session.Contents("DataTableTareas") = Nothing
