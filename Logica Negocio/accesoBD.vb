@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Data.Common
+Imports System.Data.SqlClient
 
 Public Class accesoBD
     Private Shared conexion As New SqlConnection
@@ -130,6 +131,33 @@ Public Class accesoBD
 
         dataAdapTG.Fill(dataset, "TareasG")
         Return dataset
+    End Function
+
+    Public Shared Function export_asignaturas(ByVal mail As String) As DataSet
+        Dim sql = "SELECT codigoasig FROM ((GruposClase INNER JOIN ProfesoresGrupo ON email='" & mail & "'and codigogrupo=codigo))"
+        Dim dataset As New DataSet
+        dataAdapTG = New SqlDataAdapter(sql, conexion)
+
+        dataAdapTG.Fill(dataset, "Asignaturas")
+        Return dataset
+    End Function
+
+    Public Shared Function export_2(ByVal codigo As String) As DataSet
+        Dim sql = "SELECT codigo,descripcion,hestimadas,explotacion,tipotarea FROM TareasGenericas WHERE CodAsig='" & codigo & "'"
+        Dim dataset As New DataSet
+        dataAdapTG = New SqlDataAdapter(sql, conexion)
+        Dim bldMbrs As New SqlCommandBuilder(dataAdapTG)
+        dataAdapTG.Fill(dataset, "TareasGenericas")
+        Return dataset
+    End Function
+
+    Public Shared Function import_tareasGenericas() As DataAdapter
+        Dim sql = "Select * FROM TareasGenericas"
+        Dim dataset As New DataSet
+        dataAdapTG = New SqlDataAdapter(sql, conexion)
+        Dim bldMbrs As New SqlCommandBuilder(dataAdapTG)
+        dataAdapTG.Fill(dataset, "TareasGenericas")
+        Return dataAdapTG
     End Function
 
     Public Shared Function obtenerEstudiantesTareas(ByVal mail As String) As DataSet
