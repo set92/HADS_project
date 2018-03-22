@@ -12,7 +12,7 @@ Public Class ExportarTareasXML
     Dim tbTareas As DataTable
     Dim tbTareasAsig As DataTable
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Session.Contents("mail") = "blanco@ehu.es"
+        'Session.Contents("mail") = "blanco@ehu.es"
         If Not IsPostBack Then
             Logica_Negocio.accesoBD.conectar()
             dst = Logica_Negocio.accesoBD.export_asignaturas(Session.Contents("mail"))
@@ -38,8 +38,6 @@ Public Class ExportarTareasXML
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Session("dst_T2A").Tables("TareasGenericas").TableName = "tarea"
         Session("dst_T2A").DataSetName = "tareas"
-        Dim table As DataSet
-        table = Session("dst_T2A")
         Try
             Session("dst_T2A").Tables("tarea").Columns(0).ColumnMapping = MappingType.Attribute
             Session("dst_T2A").WriteXml(Server.MapPath(("./App_Data/" & DropDownList1.SelectedValue & ".xml")))
@@ -51,7 +49,6 @@ Public Class ExportarTareasXML
     End Sub
 
     Private Sub Cargar_tareas()
-        '' Cargar Lista Tareas
         Logica_Negocio.accesoBD.conectar()
         dst = Logica_Negocio.accesoBD.export_2(DropDownList1.SelectedValue)
         Logica_Negocio.accesoBD.cerrarConexion()
@@ -65,13 +62,13 @@ Public Class ExportarTareasXML
 
         GridView1.DataSource = tbTareas
         GridView1.DataBind()
-        Logica_Negocio.accesoBD.cerrarConexion()
     End Sub
 
     Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Session("dst_T2A").Tables("TareasGenericas").TableName = "tarea" 'Cambiamos nombres para que este los nombres bien en el XML
         Session("dst_T2A").DataSetName = "tareas"
         Try
+            Session("dst_T2A").Tables("tarea").Columns(0).ColumnMapping = MappingType.Attribute
             Session("dst_T2A").WriteXml(Server.MapPath(("./App_Data/" & DropDownList1.SelectedValue & ".xml")))
             Label1.Text = "Tareas exportadas con exito a " & DropDownList1.SelectedValue & ".xml"
         Catch ex As Exception
@@ -92,8 +89,8 @@ Public Class ExportarTareasXML
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Try
-            Dim sche = JsonConvert.SerializeObject(Session("dst_T2A").Tables("TareasGenericas"))
-            File.WriteAllText(Server.MapPath(("./App_Data/" & DropDownList1.SelectedValue & ".json")), sche.ToString())
+            Dim serialDoc = JsonConvert.SerializeObject(Session("dst_T2A").Tables("TareasGenericas"))
+            File.WriteAllText(Server.MapPath(("./App_Data/" & DropDownList1.SelectedValue & ".json")), serialDoc.ToString())
 
             Label1.Text = "Tareas exportadas con exito a " & DropDownList1.SelectedValue & ".json"
         Catch ex As Exception

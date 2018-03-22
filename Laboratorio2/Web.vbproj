@@ -102,6 +102,7 @@
     <Content Include="App_Data\SEG.xml" />
     <Content Include="App_Data\XSLTFile.xsl" />
     <Content Include="ExportarTareasXML.aspx" />
+    <Content Include="ImportarDataset.aspx" />
     <Content Include="ImportarTareasXML.aspx" />
     <Content Include="InsertarTarea.aspx" />
     <Content Include="InstanciarTarea.aspx" />
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="ExportarTareasXML.aspx.vb">
       <DependentUpon>ExportarTareasXML.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ImportarDataset.aspx.designer.vb">
+      <DependentUpon>ImportarDataset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImportarDataset.aspx.vb">
+      <DependentUpon>ImportarDataset.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="ImportarTareasXML.aspx.designer.vb">

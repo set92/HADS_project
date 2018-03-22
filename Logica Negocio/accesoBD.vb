@@ -160,6 +160,16 @@ Public Class accesoBD
         Return dataAdapTG
     End Function
 
+    Public Shared Function import_tareasGenericas_porCodAsig(ByVal codigo As String) As DataAdapter
+        Dim sql = "Select * FROM TareasGenericas WHERE CodAsig='" & codigo & "'"
+        Dim dataset As New DataSet
+        dataAdapTG = New SqlDataAdapter(sql, conexion)
+        Dim bldMbrs As New SqlCommandBuilder(dataAdapTG)
+        dataAdapTG.Fill(dataset, "TareasGenericas")
+        Return dataAdapTG
+    End Function
+
+
     Public Shared Function obtenerEstudiantesTareas(ByVal mail As String) As DataSet
         Dim sql = "select Email, CodTarea, HEstimadas, HReales from EstudiantesTareas where Email='" & mail & "'"
         Dim dataset As New DataSet

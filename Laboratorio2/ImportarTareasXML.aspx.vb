@@ -12,7 +12,7 @@ Public Class ImportarTareasXML
     Dim tbTareas As DataTable
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Session.Contents("mail") = "blanco@ehu.es"
+        'Session.Contents("mail") = "blanco@ehu.es"
         If Not IsPostBack Then
             '' Cargar Lista Asignaturas
             Logica_Negocio.accesoBD.conectar()
@@ -25,9 +25,8 @@ Public Class ImportarTareasXML
             DropDownList1.DataSource = tbAsig
             DropDownList1.DataValueField = "codigoasig"
             DropDownList1.DataBind()
-            DropDownList1.Items.Item(0).Selected = True 'Mostramos los datos de la primera asignatura al cargar
+            DropDownList1.Items.Item(0).Selected = True
 
-            '' Cargar Lista Tareas
             Logica_Negocio.accesoBD.conectar()
             dapt = Logica_Negocio.accesoBD.import_tareasGenericas()
             Logica_Negocio.accesoBD.cerrarConexion()
@@ -40,10 +39,10 @@ Public Class ImportarTareasXML
             tbTareas = New DataTable()
             tbTareas = dst.Tables("TareasGenericas")
 
-            If File.Exists(Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml")) Then
+            If File.Exists(Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml")) Then
                 Label1.Text = ""
-                Xml1.DocumentSource = Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml")
-                Xml1.TransformSource = Server.MapPath("App_Data/XSLTFile.xsl")
+                Xml1.DocumentSource = Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml")
+                Xml1.TransformSource = Server.MapPath("./App_Data/XSLTFile.xsl")
             Else
                 Label1.Text = "No hay XML(Tareas) en App_Data de esta asignatura "
             End If
@@ -55,16 +54,16 @@ Public Class ImportarTareasXML
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If File.Exists(Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml")) Then
+        If File.Exists(Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml")) Then
             Label1.Text = ""
-            Xml1.DocumentSource = Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml")
-            Xml1.TransformSource = Server.MapPath("App_Data/XSLTFile.xsl")
+            Xml1.DocumentSource = Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml")
+            Xml1.TransformSource = Server.MapPath("./App_Data/XSLTFile.xsl")
 
             Dim repetidas = False
             tbTareas.Columns("Codigo").Unique = True
 
             xml = New XmlDocument
-            xml.Load(Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml"))
+            xml.Load(Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml"))
             Dim lasAsignaturas As XmlNodeList
             lasAsignaturas = xml.GetElementsByTagName("tarea")
             For Each node As XmlNode In lasAsignaturas
@@ -98,37 +97,37 @@ Public Class ImportarTareasXML
     End Sub
 
     Protected Sub LinkButton1_Click(sender As Object, e As EventArgs) Handles LinkButton1.Click
-        If File.Exists(Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml")) Then
+        If File.Exists(Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml")) Then
             Label1.ForeColor = Drawing.Color.Black
-            Xml1.DocumentSource = Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml")
-            Xml1.TransformSource = Server.MapPath("App_Data/OrdenarCodigo.xsl")
+            Xml1.DocumentSource = Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml")
+            Xml1.TransformSource = Server.MapPath("./App_Data/OrdenarCodigo.xsl")
             Label1.Text = "Tabla ordenada por codigo"
         End If
     End Sub
 
     Protected Sub LinkButton3_Click(sender As Object, e As EventArgs) Handles LinkButton3.Click
-        If File.Exists(Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml")) Then
+        If File.Exists(Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml")) Then
             Label1.ForeColor = Drawing.Color.Black
-            Xml1.DocumentSource = Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml")
-            Xml1.TransformSource = Server.MapPath("App_Data/OrdenarHestimadas.xsl")
+            Xml1.DocumentSource = Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml")
+            Xml1.TransformSource = Server.MapPath("./App_Data/OrdenarHestimadas.xsl")
             Label1.Text = "Tabla ordenada por HEstimadas"
         End If
     End Sub
 
     Protected Sub LinkButton4_Click(sender As Object, e As EventArgs) Handles LinkButton4.Click
-        If File.Exists(Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml")) Then
+        If File.Exists(Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml")) Then
             Label1.ForeColor = Drawing.Color.Black
-            Xml1.DocumentSource = Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml")
-            Xml1.TransformSource = Server.MapPath("App_Data/OrdenarDescripcion.xsl")
+            Xml1.DocumentSource = Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml")
+            Xml1.TransformSource = Server.MapPath("./App_Data/OrdenarDescripcion.xsl")
             Label1.Text = "Tabla ordenada por Descripción"
         End If
     End Sub
 
     Protected Sub DropDownList1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DropDownList1.SelectedIndexChanged
-        If File.Exists(Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml")) Then
+        If File.Exists(Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml")) Then
             Label1.Text = ""
-            Xml1.DocumentSource = Server.MapPath("App_Data/" & DropDownList1.SelectedValue & ".xml")
-            Xml1.TransformSource = Server.MapPath("App_Data/XSLTFile.xsl")
+            Xml1.DocumentSource = Server.MapPath("./App_Data/" & DropDownList1.SelectedValue & ".xml")
+            Xml1.TransformSource = Server.MapPath("./App_Data/XSLTFile.xsl")
         Else
             Label1.Text = "No hay XML(Tareas) en App_Data de esta asignatura "
         End If

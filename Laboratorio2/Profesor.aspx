@@ -29,7 +29,7 @@
                         <asp:MenuItem Text="Grupos" Value="Grupos"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/ImportarTareasXML.aspx" Text="Importar XML" Value="Importar XML"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/ExportarTareasXML.aspx" Text="Exportar XML" Value="Exportar XML"></asp:MenuItem>
-                        <asp:MenuItem Text="Importar Dataset" Value="Importar Dataset"></asp:MenuItem>
+                        <asp:MenuItem Text="Importar Dataset" Value="Importar Dataset" NavigateUrl="~/ImportarDataset.aspx"></asp:MenuItem>
                     </Items>
                     <StaticHoverStyle BackColor="#990000" ForeColor="White" />
                     <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
