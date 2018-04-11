@@ -23,13 +23,13 @@
                     <DynamicMenuStyle BackColor="#FFFBD6" />
                     <DynamicSelectedStyle BackColor="#FFCC66" />
                     <Items>
-                        <asp:MenuItem NavigateUrl="~/VerEstadisticas.aspx" Text="Estadisticas" Value="Estadisticas"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Profesor/VerEstadisticas.aspx" Text="Estadisticas" Value="Estadisticas"></asp:MenuItem>
                         <asp:MenuItem Text="Asignaturas" Value="Asignaturas"></asp:MenuItem>
-                        <asp:MenuItem Text="Tareas" Value="Tareas" NavigateUrl="~/TareasProfesor.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Tareas" Value="Tareas" NavigateUrl="~/Profesor/TareasProfesor.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Grupos" Value="Grupos"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/ImportarTareasXML.aspx" Text="Importar XML" Value="Importar XML"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/ExportarTareasXML.aspx" Text="Exportar XML" Value="Exportar XML"></asp:MenuItem>
-                        <asp:MenuItem Text="Importar Dataset" Value="Importar Dataset" NavigateUrl="~/ImportarDataset.aspx"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Profesor/Vadillo/ImportarTareasXML.aspx" Text="Importar XML" Value="Importar XML"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Profesor/Vadillo/ExportarTareasXML.aspx" Text="Exportar XML" Value="Exportar XML"></asp:MenuItem>
+                        <asp:MenuItem Text="Importar Dataset" Value="Importar Dataset" NavigateUrl="~/Profesor/Vadillo/ImportarDataset.aspx"></asp:MenuItem>
                     </Items>
                     <StaticHoverStyle BackColor="#990000" ForeColor="White" />
                     <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />

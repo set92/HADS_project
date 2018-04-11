@@ -6,9 +6,6 @@
     Private table As DataTable
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If (Session.Contents("tipo") = "Profesor") Then
-            Response.Redirect("~/Inicio.aspx")
-        End If
         If Not IsPostBack Then
             Dim mail = Session.Contents("mail")
             'Dim mail = "pepe@ikasle.ehu.es"
@@ -53,10 +50,11 @@
     Protected Sub LinkButton1_Click(sender As Object, e As EventArgs) Handles LinkButton1.Click
         Session.Abandon()
         Response.Redirect("~/Inicio.aspx")
+        FormsAuthentication.SignOut()
     End Sub
 
     Protected Sub LinkButton2_Click(sender As Object, e As EventArgs) Handles LinkButton2.Click
         Logica_Negocio.accesoBD.cerrarConexion()
-        Response.Redirect("~/TareasAlumno.aspx")
+        Response.Redirect("~/Alumno/TareasAlumno.aspx")
     End Sub
 End Class

@@ -6,9 +6,6 @@
     Private Shared table As New DataTable
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If (Session.Contents("tipo") = "Profesor") Then
-            Response.Redirect("~/Inicio.aspx")
-        End If
         If Not IsPostBack Then
             Dim mail = Session.Contents("mail")
             'mail = "jose@ikasle.ehu.es"
@@ -43,6 +40,7 @@
     Protected Sub LinkButton1_Click(sender As Object, e As EventArgs) Handles LinkButton1.Click
         Session.Abandon()
         Response.Redirect("~/Inicio.aspx")
+        FormsAuthentication.SignOut()
     End Sub
 
     Protected Sub GridView1_Sorting(sender As Object, e As GridViewSortEventArgs) Handles GridView1.Sorting
@@ -65,7 +63,7 @@
         Session.Contents("DataSetTareasAlumno") = Nothing
         Session.Contents("DataViewTareas") = Nothing
         Session.Contents("DataTableTareas") = Nothing
-        Response.Redirect("~/InstanciarTarea.aspx")
+        Response.Redirect("~/Alumno/InstanciarTarea.aspx")
     End Sub
 
     Protected Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged

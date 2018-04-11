@@ -12,10 +12,16 @@
         If String.Compare(Logica_Negocio.accesoBD.loginUsuario(d), "LOGIN USUARIO OK") = 0 Then
             Session.Contents("mail") = d(0)
             Session.Contents("tipo") = Logica_Negocio.accesoBD.tipoUsuario(d)
+            If tb_email.Text = "vadillo@ehu.es" Then
+                FormsAuthentication.SetAuthCookie("vadillo@ehu.es", False)
+            Else
+                FormsAuthentication.SetAuthCookie(Session.Contents("tipo"), False)
+            End If
             If String.Compare(Session.Contents("tipo"), "Profesor") = 0 Then
-                Response.Redirect("~/Profesor.aspx")
+                Response.Redirect("~/Profesor/Profesor.aspx")
             ElseIf String.Compare(Session.Contents("tipo"), "Alumno") = 0 Then
-                Response.Redirect("~/Alumno.aspx")
+                Response.Redirect("~/Alumno/Alumno.aspx")
+            Else
             End If
         Else
             MesgBox("No se ha podido conectar")
