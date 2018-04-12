@@ -1,5 +1,6 @@
 ﻿Imports System.Data.Common
 Imports System.Data.SqlClient
+Imports System.Security.Cryptography
 
 Public Class accesoBD
     Private Shared conexion As New SqlConnection
@@ -29,7 +30,8 @@ Public Class accesoBD
     End Function
 
     Public Shared Function insertarUsuario(ByVal datos As Array) As String
-        Dim sql = "insert into Usuarios(email, nombre, apellidos, numconfir, confirmado, tipo, pass) values('" & datos(0) & "', '" & datos(1) & "', '" & datos(2) & "', " & datos(3) & ", " & datos(4) & ", '" & datos(5) & "', '" & datos(6) & "')"
+        Dim passH = obtenerHash(datos(6))
+        Dim sql = "insert into Usuarios(email, nombre, apellidos, numconfir, confirmado, tipo, pass) values('" & datos(0) & "', '" & datos(1) & "', '" & datos(2) & "', " & datos(3) & ", " & datos(4) & ", '" & datos(5) & "', '" & passH & "')"
         Dim numRegistro As Integer
 
         Try
@@ -184,4 +186,17 @@ Public Class accesoBD
         dataAdapET.Update(datos.DataSet, "EstudiantesT")
         datos.DataSet.AcceptChanges()
     End Sub
+
+    Private Shared Function obtenerHash(ByVal pass As String) As String
+        Dim salt = New Byte() {128 / 8}
+        Dim rng = RandomNumberGenerator.Create()
+        rng.GetBytes(salt)
+        'Dim hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+        'password: password,
+        'salt: salt,
+        'prf: KeyDerivationPrf.HMACSHA1,
+        'iterationCount:  10000,
+        'numBytesRequested: 256 / 8));
+        Return "Hola"
+    End Function
 End Class
