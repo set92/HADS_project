@@ -7,6 +7,7 @@ Public Class accesoBD
     Private Shared comando As New SqlCommand
     Private Shared dataAdapET As New SqlDataAdapter
     Private Shared dataAdapTG As New SqlDataAdapter
+    Private Shared objSHA1 As New SHA1CryptoServiceProvider
 
     Public Shared Function conectar() As String
         Try
@@ -76,7 +77,8 @@ Public Class accesoBD
     End Function
 
     Public Shared Function cambiarPassword(ByVal datos As Array) As String
-        Dim sql = "update Usuarios set pass='" & datos(1) & "' where email='" & datos(0) & "'"
+        Dim passH = obtenerHash(datos(1))
+        Dim sql = "update Usuarios set pass='" & passH & "' where email='" & datos(0) & "'"
 
         Try
             comando = New SqlCommand(sql, conexion)
@@ -91,7 +93,8 @@ Public Class accesoBD
     End Function
 
     Public Shared Function loginUsuario(ByVal datos As Array) As String
-        Dim sql = "select count(email) from Usuarios where email='" & datos(0) & "' and pass='" & datos(1) & "' and confirmado=1"
+        Dim passH = obtenerHash(datos(1))
+        Dim sql = "select count(email) from Usuarios where email='" & datos(0) & "' and pass='" & passH & "' and confirmado=1"
 
         Try
             comando = New SqlCommand(sql, conexion)
@@ -188,15 +191,9 @@ Public Class accesoBD
     End Sub
 
     Private Shared Function obtenerHash(ByVal pass As String) As String
-        Dim salt = New Byte() {128 / 8}
-        Dim rng = RandomNumberGenerator.Create()
-        rng.GetBytes(salt)
-        'Dim hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-        'password: password,
-        'salt: salt,
-        'prf: KeyDerivationPrf.HMACSHA1,
-        'iterationCount:  10000,
-        'numBytesRequested: 256 / 8));
-        Return "Hola"
+        Dim passHash = BitConverter.ToString(objSHA1.ComputeHash(System.Text.Encoding.ASCII.GetBytes(pass)))
+
+        passHash = Replace(passHash, "-", "")
+        Return passHash
     End Function
 End Class
