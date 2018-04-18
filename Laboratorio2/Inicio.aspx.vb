@@ -12,14 +12,25 @@
         If String.Compare(Logica_Negocio.accesoBD.loginUsuario(d), "LOGIN USUARIO OK") = 0 Then
             Session.Contents("mail") = d(0)
             Session.Contents("tipo") = Logica_Negocio.accesoBD.tipoUsuario(d)
+            Application("NUsuarios") = Application("NUsuarios") + 1
             If tb_email.Text = "vadillo@ehu.es" Then
                 FormsAuthentication.SetAuthCookie("vadillo@ehu.es", False)
             Else
                 FormsAuthentication.SetAuthCookie(Session.Contents("tipo"), False)
             End If
             If String.Compare(Session.Contents("tipo"), "Profesor") = 0 Then
+                Dim temp As New ListBox()
+                temp = Application("listaprof")
+                temp.Items.Add(Session.Contents("mail"))
+                Application("listaprof") = temp
+                Application("numP") = Application("numP") + 1
                 Response.Redirect("~/Profesor/Profesor.aspx")
             ElseIf String.Compare(Session.Contents("tipo"), "Alumno") = 0 Then
+                Dim temp As New ListBox
+                temp = Application("listaalum")
+                temp.Items.Add(Session.Contents("mail"))
+                Application("listaalum") = temp
+                Application("numA") = Application("numA") + 1
                 Response.Redirect("~/Alumno/Alumno.aspx")
             Else
             End If

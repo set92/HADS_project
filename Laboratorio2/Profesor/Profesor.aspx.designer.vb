@@ -30,4 +30,40 @@ Partial Public Class Profesor
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Menu1 As Global.System.Web.UI.WebControls.Menu
+    
+    '''<summary>
+    '''ScriptManager1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
+    
+    '''<summary>
+    '''OnlineUsersCounter control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents OnlineUsersCounter As Global.Laboratorio2.OnlineUsersCounter1
+    
+    '''<summary>
+    '''LBProfesoresConectados control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LBProfesoresConectados As Global.Laboratorio2.LBProfesoresConectados
+    
+    '''<summary>
+    '''LBAlumnosConectados control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LBAlumnosConectados As Global.Laboratorio2.LBAlumnosConectados
 End Class

@@ -5,20 +5,21 @@ Public Class Global_asax
 
     Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
         Application.Contents("NUsuarios") = 0
+        Application("numA") = 0
+        Application("numP") = 0
+
+        Dim listaprof As New ListBox()
+        Dim listaalum As New ListBox()
+        Application("listaprof") = listaprof
+        Application("listaalum") = listaalum
     End Sub
 
     Sub Session_Start(ByVal sender As Object, ByVal e As EventArgs)
-        Application.Lock()
-        Dim ns As Integer = Application.Contents("NUsuarios")
-        Application.Contents("NUsuarios") = ns + 1
-        Application.UnLock()
+
     End Sub
 
     Sub Session_End(ByVal sender As Object, ByVal e As EventArgs)
-        Application.Lock()
-        Dim ns As Integer = Application.Contents("NUsuarios")
-        Application.Contents("NUsuarios") = ns - 1
-        Application.UnLock()
+        Application("NUsuarios") = Application("NUsuarios") - 1
     End Sub
 
     Sub Application_BeginRequest(ByVal sender As Object, ByVal e As EventArgs)

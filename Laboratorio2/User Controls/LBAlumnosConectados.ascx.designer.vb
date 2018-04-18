@@ -11,59 +11,41 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Alumno
+Partial Public Class LBAlumnosConectados
     
     '''<summary>
-    '''form1 control.
+    '''UpdatePanel1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
     
     '''<summary>
-    '''Menu1 control.
+    '''Label1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Menu1 As Global.System.Web.UI.WebControls.Menu
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''ScriptManager1 control.
+    '''ListBox1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
+    Protected WithEvents ListBox1 As Global.System.Web.UI.WebControls.ListBox
     
     '''<summary>
-    '''OnlineUsersCounter control.
+    '''Timer1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents OnlineUsersCounter As Global.Laboratorio2.OnlineUsersCounter1
-    
-    '''<summary>
-    '''LBProfesoresConectados control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents LBProfesoresConectados As Global.Laboratorio2.LBProfesoresConectados
-    
-    '''<summary>
-    '''LBAlumnosConectados control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents LBAlumnosConectados As Global.Laboratorio2.LBAlumnosConectados
+    Protected WithEvents Timer1 As Global.System.Web.UI.Timer
 End Class

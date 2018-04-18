@@ -38,9 +38,18 @@
     End Sub
 
     Protected Sub LinkButton1_Click(sender As Object, e As EventArgs) Handles LinkButton1.Click
+        Application.Lock()
+
+        Dim temp As ListBox
+        temp = Application("listaalum")
+        temp.Items.Remove(Session.Contents("mail"))
+        Application("listaalum") = temp
+        Application("numA") = Application("numA") - 1
+        FormsAuthentication.SignOut()
         Session.Abandon()
         Response.Redirect("~/Inicio.aspx")
-        FormsAuthentication.SignOut()
+
+        Application.UnLock()
     End Sub
 
     Protected Sub GridView1_Sorting(sender As Object, e As GridViewSortEventArgs) Handles GridView1.Sorting

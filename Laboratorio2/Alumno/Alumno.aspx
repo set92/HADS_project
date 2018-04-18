@@ -1,5 +1,9 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Alumno.aspx.vb" Inherits="Laboratorio2.Alumno" %>
 
+<%@ Register Src="~/User Controls/OnlineUsersCounter.ascx" TagPrefix="uc1" TagName="OnlineUsersCounter" %>
+<%@ Register Src="~/User Controls/LBProfesoresConectados.ascx" TagPrefix="uc1" TagName="LBProfesoresConectados" %>
+<%@ Register Src="~/User Controls/LBAlumnosConectados.ascx" TagPrefix="uc1" TagName="LBAlumnosConectados" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,7 +44,18 @@
                 <br />
                 <br />
                 Alumnos
-                
+
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+
+            </asp:ScriptManager>
+            
+           
+
+            <uc1:OnlineUsersCounter runat="server" ID="OnlineUsersCounter" />
+            <uc1:LBProfesoresConectados runat="server" ID="LBProfesoresConectados" />
+            <uc1:LBAlumnosConectados runat="server" ID="LBAlumnosConectados" />
+            <br />
+           
             </div>
         </div>
         
