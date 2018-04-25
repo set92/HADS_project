@@ -32,6 +32,8 @@
             <br />
             <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/CambiarPassword.aspx">Modificar password</asp:HyperLink>
             <br />
+            <br />
+            <br />
         </div>
     </form>
 </body>

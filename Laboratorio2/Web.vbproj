@@ -107,9 +107,16 @@
     <Content Include="App_Data\OrdenarHestimadas.xsl" />
     <Content Include="App_Data\SEG.xml" />
     <Content Include="App_Data\XSLTFile.xsl" />
-    <None Include="Connected Services\Matriculas\configuration91.svcinfo" />
-    <None Include="Connected Services\Matriculas\configuration.svcinfo" />
-    <None Include="Connected Services\Matriculas\Reference.svcmap">
+    <Content Include="Connected Services\ServiceDedicacion\Laboratorio2.ServiceDedicacion.HelloWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceDedicacion\Laboratorio2.ServiceDedicacion.obtenerDedicacionMediaAsigResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ServiceDedicacion\WebService1.disco" />
+    <None Include="Connected Services\ServiceDedicacion\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceDedicacion\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceDedicacion\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
@@ -138,7 +145,7 @@
     <Content Include="WebService1.asmx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\Matriculas\Reference.vb">
+    <Compile Include="Connected Services\ServiceDedicacion\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -291,7 +298,7 @@
       <DependentUpon>OnlineUsersCounter.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web References\service1\Reference.vb">
+    <Compile Include="Web References\ComprobarMatriculas\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -314,7 +321,7 @@
     <None Include="App_Data\tareas.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Matriculas\comprobarmatricula.wsdl" />
+    <None Include="Connected Services\ServiceDedicacion\WebService1.wsdl" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -328,8 +335,8 @@
     <None Include="packages.config" />
     <Content Include="Profesor\Web.config" />
     <Content Include="Profesor\Vadillo\Web.config" />
-    <None Include="Web References\service1\comprobarmatricula.wsdl" />
-    <Content Include="Web References\service1\Reference.map">
+    <None Include="Web References\ComprobarMatriculas\comprobarmatricula.wsdl" />
+    <Content Include="Web References\ComprobarMatriculas\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </Content>
@@ -345,12 +352,16 @@
       <Project>{2f0c077e-0766-4f16-9639-80aad4253470}</Project>
       <Name>Logica Negocio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Servicio\Servicio.vbproj">
+      <Project>{20ac14c5-1f56-4e0a-ab35-7b9a4b620ead}</Project>
+      <Name>Servicio</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\Matriculas\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceDedicacion\" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
@@ -358,7 +369,7 @@
   <ItemGroup>
     <WebReferenceUrl Include="http://ehusw.es/jav/ServiciosWeb/comprobarmatricula.php%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\service1\</RelPath>
+      <RelPath>Web References\ComprobarMatriculas\</RelPath>
       <UpdateFromURL>http://ehusw.es/jav/ServiciosWeb/comprobarmatricula.php%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>

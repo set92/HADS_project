@@ -30,7 +30,7 @@
                         <asp:MenuItem NavigateUrl="~/Profesor/VerEstadisticas.aspx" Text="Estadisticas" Value="Estadisticas"></asp:MenuItem>
                         <asp:MenuItem Text="Asignaturas" Value="Asignaturas"></asp:MenuItem>
                         <asp:MenuItem Text="Tareas" Value="Tareas" NavigateUrl="~/Profesor/TareasProfesor.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Grupos" Value="Grupos"></asp:MenuItem>
+                        <asp:MenuItem Text="COORDINAR" Value="COORDINAR" NavigateUrl="~/Profesor/Vadillo/coordinador.aspx"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Profesor/Vadillo/ImportarTareasXML.aspx" Text="Importar XML" Value="Importar XML"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Profesor/Vadillo/ExportarTareasXML.aspx" Text="Exportar XML" Value="Exportar XML"></asp:MenuItem>
                         <asp:MenuItem Text="Importar Dataset" Value="Importar Dataset" NavigateUrl="~/Profesor/Vadillo/ImportarDataset.aspx"></asp:MenuItem>

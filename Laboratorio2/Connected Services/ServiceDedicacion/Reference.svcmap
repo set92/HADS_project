@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d54d40a9-c875-41b5-bc9d-331add4f9592" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b0927b24-d19e-4362-a9ae-26b672f45c06" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://ehusw.es/jav/ServiciosWeb/comprobarmatricula.php?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://servicio20180425121925.azurewebsites.net/WebService1.asmx?op=obtenerDedicacionMediaAsig" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="comprobarmatricula.wsdl" MetadataType="Wsdl" ID="83fc16d0-beac-472f-a58c-862edd505093" SourceId="1" SourceUrl="http://ehusw.es/jav/ServiciosWeb/comprobarmatricula.php?wsdl" />
+    <MetadataFile FileName="WebService1.disco" MetadataType="Disco" ID="b85df667-7976-43f0-9e92-40ee77fb239c" SourceId="1" SourceUrl="http://servicio20180425121925.azurewebsites.net/WebService1.asmx?disco" />
+    <MetadataFile FileName="WebService1.wsdl" MetadataType="Wsdl" ID="1810ef4e-a1d9-410d-a2f3-76fe93191bd7" SourceId="1" SourceUrl="http://servicio20180425121925.azurewebsites.net/WebService1.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
