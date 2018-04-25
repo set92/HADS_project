@@ -22,7 +22,7 @@
     End Sub
 
     Protected Sub tb_email_TextChanged(sender As Object, e As EventArgs) Handles tb_email.TextChanged
-        Dim x As New Matriculas.MatriculasPortTypeClient
+        Dim x As New service1.Matriculas
         Dim resp = x.comprobar(tb_email.Text)
         If resp = "SI" Then
             matriculado = True
