@@ -3,7 +3,7 @@ Imports System.Data.SqlClient
 Imports System.Security.Cryptography
 
 Public Class accesoBD
-    Private Shared conexion As New SqlConnection
+    Public Shared conexion As New SqlConnection
     Private Shared comando As New SqlCommand
     Private Shared dataAdapET As New SqlDataAdapter
     Private Shared dataAdapTG As New SqlDataAdapter

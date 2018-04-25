@@ -19,6 +19,7 @@
             <asp:TextBox ID="tb_email" runat="server"></asp:TextBox>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="tb_email"></asp:RegularExpressionValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tb_email" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:Label ID="Label8" runat="server" Text="Existes en el servicio?"></asp:Label>
             <br />
             <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
