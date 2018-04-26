@@ -63,6 +63,16 @@ Namespace My
                 Return CType(Me("Laboratorio2_service1_Matriculas"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("http://localhost:60663/WebService1.asmx")>  _
+        Public ReadOnly Property Laboratorio2_obtenerDedicacionServicio_WebService1() As String
+            Get
+                Return CType(Me("Laboratorio2_obtenerDedicacionServicio_WebService1"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

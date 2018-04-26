@@ -18,7 +18,7 @@
                 <br />
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
-                        <asp:Button ID="Button1" CssClass="btn btn-default" runat="server" Text="Obtener Dedicación" />
+                        <asp:Button ID="Button1" runat="server" Text="Obtener Dedicación" />
                         <br />
                         <br />
                         <asp:Label ID="Label1" runat="server"></asp:Label>
